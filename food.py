@@ -3,7 +3,8 @@ import random
 
 
 class Food(Turtle):
-    
+    """Represents the food in the game."""
+
     def __init__(self):
         super().__init__()
         self.shape("circle")
@@ -14,6 +15,12 @@ class Food(Turtle):
         self.refresh()
 
     def refresh(self):
-        random_x = random.randint(-280, 280)
-        random_y = random.randint(-280 , 280)
-        self.goto(random_x,random_y)
+        """Repositions the food at a random location on the screen."""
+        random_x = random.randint(-270, 270)
+        random_y = random.randint(-270, 270)
+        self.color(self.random_color())
+        self.goto(random_x, random_y)
+
+    def random_color(self):
+        """Generates a random color for the food."""
+        return random.choice(["red", "blue", "green", "yellow", "purple", "orange"])
